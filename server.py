@@ -47,7 +47,7 @@ def handle_login():
     #Session['user_id'] = d['user_id']
     #return "%s %s %s"%(d['name'], d['email'], d['user_id'])
     Authentication.post_token(d['name'], d['email'], d['user_id'])
-
+    return "%s %s %s"%(d['name'], d['email'], d['user_id'])
     #    print "%s %s %s"%(d['name'], d['email'], d['user_id'])
 if __name__ == "__main__":
     app.run()
