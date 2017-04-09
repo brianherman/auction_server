@@ -23,11 +23,13 @@
 
   document.getElementById('LoginWithAmazon').onclick = function() {
     options = { scope : 'profile' };
-    amazon.Login.authorize(options, 'https://www.bannedfromhalf.com/handle_login');
+    amazon.Login.authorize(options, 'https://www.healthkare.net/handle_login');
+    
     return false;
   };
 
 </script>
+<a id="Logout" href="#">Logout</a>
 <script type="text/javascript">
   document.getElementById('Logout').onclick = function() {
     amazon.Login.logout();

@@ -4,15 +4,17 @@ import json
 import StringIO
 from flask import Flask
 from flask import render_template
+from flask import request, url_for
 import logging
 app = Flask(__name__)
-
+from auth import Authentication
 @app.route('/')
 def root():
      return render_template('login.html')
 @app.route("/handle_login")
 def handle_login():
-
+    access_token = request.args['access_token']
+    import pdb; pdb.set_trace()
     b = StringIO.StringIO()
     
     # verify that the access token belongs to us
@@ -39,7 +41,10 @@ def handle_login():
     
     c.perform()
     d = json.loads(b.getvalue())
+
+
     return "%s %s %s"%(d['name'], d['email'], d['user_id'])
+
     #    print "%s %s %s"%(d['name'], d['email'], d['user_id'])
 if __name__ == "__main__":
     app.run()
