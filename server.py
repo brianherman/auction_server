@@ -5,6 +5,7 @@ import StringIO
 from flask import Flask
 from flask import render_template
 from flask import request, url_for
+from flask.ext.session import Session
 import logging
 app = Flask(__name__)
 from auth import Authentication
@@ -14,9 +15,10 @@ def root():
 @app.route("/handle_login")
 def handle_login():
     access_token = request.args['access_token']
-    import pdb; pdb.set_trace()
     b = StringIO.StringIO()
-    
+    #logging.error(str(type(access_token)))
+    #logging.error(str(access_token))
+    access_token = access_token.encode('utf-8') #access code is unicode convert to utf-8
     # verify that the access token belongs to us
     c = pycurl.Curl()
     c.setopt(pycurl.URL, "https://api.amazon.com/auth/o2/tokeninfo?access_token=" + urllib.quote_plus(access_token))
@@ -41,9 +43,10 @@ def handle_login():
     
     c.perform()
     d = json.loads(b.getvalue())
-
-
-    return "%s %s %s"%(d['name'], d['email'], d['user_id'])
+    #todo implement sessions
+    #Session['user_id'] = d['user_id']
+    #return "%s %s %s"%(d['name'], d['email'], d['user_id'])
+    Authentication.post_token(d['name'], d['email'], d['user_id'])
 
     #    print "%s %s %s"%(d['name'], d['email'], d['user_id'])
 if __name__ == "__main__":
