@@ -5,6 +5,8 @@ class Authentication:
     #session.user.userId
     @staticmethod
     def get_token(uid):
+        dynamodb = boto3.resource('dynamodb')
+        table = dynamodb.Table('users')
         response = table.get_item(
             Key={
                 'uid': uid,
@@ -18,11 +20,27 @@ class Authentication:
     def post_token(name, email, uid):
         dynamodb = boto3.resource('dynamodb')
         table = dynamodb.Table('users')
+        
         table.put_item(
             Item={
                     'name': name,
                     'email': email,
                     'uid': uid,
+                    'following': [],
+                }
+        )
+      @staticmethod
+    #    auth.post_token(d['name'], d['email'], d['user_id'])
+    def post_token(name, email, uid):
+        dynamodb = boto3.resource('dynamodb')
+        table = dynamodb.Table('users')
+        
+        table.put_item(
+            Item={
+                    'name': name,
+                    'email': email,
+                    'uid': uid,
+                    'following': [],
                 }
         )
     @staticmethod
