@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>auctionbuttler.com</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="lib/device-mockups/device-mockups.min.css">
+
+    <!-- Theme CSS -->
+    <link href="css/new-age.min.css" rel="stylesheet">
+    <link href="css/speechbubbles.css" rel="stylesheet">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">buttler.auction</a>
+                  
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#download">Sign Up</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#features">Features</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="http://www.aconsapart.com/">Consulting</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    <li>
+                        <div id="amazon-root"></div>
+                            <script type="text/javascript">
+
+                            window.onAmazonLoginReady = function() {
+                                amazon.Login.setClientId('amzn1.application-oa2-client.74e27ed5f3da48d18b60b6b156787d9a');
+                            };
+                            (function(d) {
+                                var a = d.createElement('script'); a.type = 'text/javascript';
+                                a.async = true; a.id = 'amazon-login-sdk';
+                                a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
+                                d.getElementById('amazon-root').appendChild(a);
+                            })(document);
+
+                            </script>
+
+
+                            <a href="#" id="LoginWithAmazon">
+                            <img border="0" alt="Login with Amazon"
+                                src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
+                                width="156" height="32" />
+                            </a>
+                            <script type="text/javascript">
+
+                            document.getElementById('LoginWithAmazon').onclick = function() {
+                                options = { scope : 'profile' };
+                                amazon.Login.authorize(options, 'https://www.healthkare.net/handle_login');
+                                
+                                return false;
+                            };
+
+                            </script>
+                            <a id="Logout" href="#">Logout</a>
+                            <script type="text/javascript">
+                            document.getElementById('Logout').onclick = function() {
+                                amazon.Login.logout();
+                            };
+                            </script>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="header-content">
+                        <div class="header-content-inner">
+                            <h1>ebay+alexa=awesome</h1>
+                            <a href="#download" class="btn btn-outline btn-xl page-scroll">Start Now for one dollar!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="device-container">
+                        <div class="device-mockup portrait white">
+                             <p class="triangle-isosceles">You: From auction buttler daily briefing.</p>
+                             <p ><img src="img/Girl_silhouette.svg"></p>
+                            <p class="triangle-isosceles">Alexa: Oldwatchmaker is selling an item with title: Gold Pocketwatch and it is currently going for $199.99</p>
+                            <p style="padding-left:30px;"><img src="img/alexa.svg" height="64" width="64" ></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="download" class="download bg-primary text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class="section-heading">Discover what all the buzz is about!</h2>
+                    <!-- <p>Our app is available on any mobile device! Download now to get started!</p>-->
+                    <p>Our app is available in the Alexa Skills page!</p>
+                    <div class="badges">
+                        <a class="badge-link" href="https://www.amazon.com/b?ie=UTF8&node=13727921011"><img src="img/amazon-badge.svg" alt=""></a>
+                        <!--<a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>-->
+                        <!--<a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-heading">
+                        <h2>Auction Assistant</h2>
+                        <p class="text-muted">You can follow people on ebay and see what they are selling with this app.</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="device-container">
+                        <img src="img/alexa.png">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="icon-screen-smartphone text-primary"></i>
+                                    <h3>Links to your Amazon account</h3>
+                                    <p class="text-muted">Backed by the cold hearted steel of amazon.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="icon-camera text-primary"></i>
+                                    <h3>Paid Plans</h3>
+                                    <p class="text-muted">Paid plans will get future updates! We will also accept suggestions!</p>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-content">
+            <div class="container">
+                <h2>Stop waiting.<br>Now you can have that butler you always wanted.</h2>
+                <a href="#contact" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
+            </div>
+        </div>
+        <div class="overlay"></div>
+    </section>
+    
+    <section id="contact" class="contact bg-primary">
+        <div class="container">
+            <h2>We <i class="fa fa-heart"></i> new friends!</h2>
+            
+            <ul class="list-inline list-social">
+                <li class="social-twitter">
+                    <a href="https://twitter.com/auctionbuttler"><i class="fa fa-twitter"></i></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="tel:16303849464"><h2>Phone</h2></a> <a href="mailto:chicagopython@gmail.com"><h2>Email</h2></a>
+            <p>Theme &copy; 2016 Start Bootstrap. All Rights Reserved.</p>
+            <ul class="list-inline">
+                <li>
+                    <a href="privacy_policy.html">Privacy Policy</a>
+                </li>
+                <!--
+                <li>
+                    <a href="#">Terms</a>
+                </li>
+                -->
+                <!--<li>
+                    <a href="FAQ.html">FAQ</a>
+                </li>-->
+            </ul>
+        </div>
+        <div>Alexa picture Original from: https://flic.kr/p/EqwyFh, Licence https://creativecommons.org/publicdomain/mark/1.0/</div>
+        <div>Hockey Puck icon made from <a href="http://www.onlinewebfonts.com/icon">Icon Fonts</a> is licensed by CC BY 3.0</div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="lib/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/new-age.min.js"></script>
+
+</body>
+
+</html>
