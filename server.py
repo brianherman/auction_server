@@ -5,10 +5,12 @@ import StringIO
 from flask import Flask
 from flask import render_template
 from flask import request, url_for
-from flask.ext.session import Session
+from flask import redirect
+from flask import Flask, session
 import logging
 app = Flask(__name__)
 from auth import Authentication
+
 @app.route('/')
 def root():
      return render_template('login.html')
@@ -47,7 +49,21 @@ def handle_login():
     #Session['user_id'] = d['user_id']
     #return "%s %s %s"%(d['name'], d['email'], d['user_id'])
     Authentication.post_token(d['name'], d['email'], d['user_id'])
-    return "%s %s %s"%(d['name'], d['email'], d['user_id'])
+    session['email'] = d['email']
+    session['user_id'] = d['user_id']
+    return redirect(url_for('profile'))
+    #return "%s %s %s"%(d['name'], d['email'], d['user_id'])
     #    print "%s %s %s"%(d['name'], d['email'], d['user_id'])
+@app.route('/profile')
+def profile():
+    #if 'user_id' in session:
+    #t = Authentication.get_token(session['user_id'])
+    t = Authentication.get_token('amzn1.account.AEJE7TGHIUBKGRP7VW5Z5W5SBALA')
+    #import pdb; pdb.set_trace()
+    
+    t['uid']
+    #return render_template('notloggedin.html')
 if __name__ == "__main__":
     app.run()
+#todo change this
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
