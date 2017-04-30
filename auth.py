@@ -29,8 +29,8 @@ class Authentication:
                     'following': [],
                 }
         )
-      @staticmethod
     #    auth.post_token(d['name'], d['email'], d['user_id'])
+    @staticmethod
     def post_token(name, email, uid):
         dynamodb = boto3.resource('dynamodb')
         table = dynamodb.Table('users')
@@ -53,6 +53,21 @@ class Authentication:
                 'uid': uid
             }
         )
+    @staticmethod
+    def add_to_following(uid, followers):
+        dynamodb = boto3.resource('dynamodb')
+        table = dynamodb.Table('users')
+        response = table.update_item(
+            Key={
+                'uid': uid
+            },
+            UpdateExpression="set user.following=:a",
+            ExpressionAttributeValues={
+                ':a': [followers]
+            },
+            ReturnValues="UPDATED_NEW"
+        )
+
 if __name__ == "__main__":
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.create_table(

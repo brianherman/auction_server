@@ -13,7 +13,7 @@ from auth import Authentication
 
 @app.route('/')
 def root():
-     return render_template('login.html')
+     return render_template('index.html')
 @app.route("/handle_login")
 def handle_login():
     access_token = request.args['access_token']
@@ -51,19 +51,23 @@ def handle_login():
     Authentication.post_token(d['name'], d['email'], d['user_id'])
     session['email'] = d['email']
     session['user_id'] = d['user_id']
-    return redirect(url_for('profile'))
+    t = Authentication.get_token(d['user_id'])
+    
+    return render_template("profile.html", follower=t['following'])
     #return "%s %s %s"%(d['name'], d['email'], d['user_id'])
     #    print "%s %s %s"%(d['name'], d['email'], d['user_id'])
-@app.route('/profile')
-def profile():
-    #if 'user_id' in session:
-    #t = Authentication.get_token(session['user_id'])
-    t = Authentication.get_token('amzn1.account.AEJE7TGHIUBKGRP7VW5Z5W5SBALA')
-    #import pdb; pdb.set_trace()
-    
-    t['uid']
-    #return render_template('notloggedin.html')
+@app.route('/add_follower')
+def add_follower():
+    if 'user_id' in session:
+       if request.form['follower']:
+
+        profile = Authentication.get_token(session['user_id'])
+        following = profile['following']
+        following.append(request.form['follower'])
+        Authentication.add_to_following(following)
+    else:
+        return render_template('notloggedin.html')
 if __name__ == "__main__":
     app.run()
-#todo change this
+#TODO change this
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
