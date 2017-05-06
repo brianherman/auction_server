@@ -1,4 +1,4 @@
-import pycurl
+#import pycurl
 import urllib
 import json
 import StringIO

@@ -91,19 +91,36 @@
                             </a>
                             <script type="text/javascript">
 
-                            document.getElementById('LoginWithAmazon').onclick = function() {
-                                options = { scope : 'profile' };
-                                amazon.Login.authorize(options, 'https://auction.buttler/handle_login');
-                                return false;
-                            };
-
+                                document.getElementById('LoginWithAmazon').onclick = function() {
+                                    options = { scope : 'profile' };
+                                    amazon.Login.authorize(options, function(response){
+                                        if ( response.error ) {
+                                            alert('oauth error ' + response.error);
+                                            return;
+                                        }
+                                        amazon.Login.retrieveProfile(response.access_token, function(response) {
+                                                /*
+                                                {"success":true,"profile":{"PrimaryEmail":"brianherman@gmail.com","CustomerId":"amzn1.account.AEJE7TGHIUBKGRP7VW5Z5W5SBALA","Name":"brian herman"}}
+                                                
+                                                */
+                                                if (response.success)
+                                                {
+                                                    
+                                                    var uid = encodeURI(response.profile.CustomerId);
+                                                    var email = encodeURI(response.profile.PrimaryEmail);
+                                                    window.location.href = 'https://buttler.auction/signin/'+uid+'/'+email;
+                                                }
+                                        });
+                                    });
+                                    return false;
+                                }
                             </script>
                             <a id="Logout" href="#">Logout</a>
-<script type="text/javascript">
-  document.getElementById('Logout').onclick = function() {
-    amazon.Login.logout();
-};
-</script>
+                            <script type="text/javascript">
+                            document.getElementById('Logout').onclick = function() {
+                                amazon.Login.logout();
+                            };
+                            </script>
                     </li>
                 </ul>
             </div>
